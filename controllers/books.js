@@ -2,7 +2,7 @@ var myApp = angular.module('myApp');
 
 myApp.controller('BooksController', ['$scope', '$http', '$location', '$routeParams', function($scope, $http, $location, $routeParams){
 	console.log('BooksController loaded...');
-	var root = 'http://localhost:3000';
+	var root = 'https://green-web-bookstore.herokuapp.com';
 	$scope.getBooks = function(){
 		$http.get(root+'/api/books').success(function(response){
 			$scope.books = response;
