@@ -7,19 +7,14 @@
         <div class="row">
             <div class="col-md-12">
                 <form ng-submit="addBook()">
-
                     <div class="form-group">
                         <label>Title</label>
                         <input type="text" class="form-control" ng-model="book.title" placeholder="Title">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-init="getGenres()">
                         <label>Genre</label>
-                        <select ng-model="book.genre.name" class="form-control">
-                          <option value="Suspense">Suspense</option>
-                          <option value="Drama">Drama</option>
-                          <option value="Romance">Romance</option>
-                          <option value="NonFiction">NonFiction</option>
-                          <option value="Other">Other</option>
+                        <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres">
+                          <!--<option ng-repeat="genre in genres" value="{{genre._id}}">{{genre.name}}</option>-->
                         </select>
                     </div>
                     <div class="form-group">

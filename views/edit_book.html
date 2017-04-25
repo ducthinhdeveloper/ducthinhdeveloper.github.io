@@ -5,7 +5,7 @@
     </div>
     <div class="panel-body">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" ng-init="getGenres()">
                 <form ng-submit="updateBook()" ng-init="getBook()">
                     <div class="form-group">
                         <label>Title</label>
@@ -13,13 +13,7 @@
                     </div>
                     <div class="form-group">
                         <label>Genre</label>
-                        <select ng-model="book.genre.name" class="form-control">
-                          <option value="Suspense">Suspense</option>
-                          <option value="Drama">Drama</option>
-                          <option value="Romance">Romance</option>
-                          <option value="NonFiction">NonFiction</option>
-                          <option value="Other">Other</option>
-                        </select>
+                        <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres track by genre._id" />
                     </div>
                     <div class="form-group">
                         <label>Author</label>

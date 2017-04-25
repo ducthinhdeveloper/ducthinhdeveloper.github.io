@@ -8,6 +8,11 @@ myApp.controller('BooksController', ['$scope', '$http', '$location', '$routePara
             $scope.books = response;
         });
     }
+    $scope.getGenres = function() {
+        $http.get(root + '/api/genres').success(function(response) {
+            $scope.genres = response;
+        });
+    }
 
     $scope.getBook = function() {
         var id = $routeParams.id;
@@ -18,6 +23,9 @@ myApp.controller('BooksController', ['$scope', '$http', '$location', '$routePara
 
     $scope.addBook = function() {
         console.log($scope.book);
+
+
+
         $http.post(root + '/api/books/', $scope.book).success(function(response) {
             window.location.href = '#/books';
         });
