@@ -1,1 +1,4 @@
-img{width:100%;}
+.book-thumbnail {
+    max-width: 200px;
+    max-height: 250px;
+}
