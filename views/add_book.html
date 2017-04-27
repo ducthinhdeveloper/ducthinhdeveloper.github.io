@@ -13,9 +13,7 @@
                     </div>
                     <div class="form-group" ng-init="getGenres()">
                         <label>Genre</label>
-                        <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres">
-                          <!--<option ng-repeat="genre in genres" value="{{genre._id}}">{{genre.name}}</option>-->
-                        </select>
+                        <select ng-model="book.genre" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres"/>
                     </div>
                     <div class="form-group">
                         <label>Author</label>
@@ -43,7 +41,7 @@
                     </div>
                     <div class="form-group">
                         <label>Release Date</label>
-                        <input type="datetime" class="form-control" ng-model="releaseDate" placeholder="Release Date">
+                        <input type="datetime" class="form-control" ng-model="book.releaseDate" placeholder="Release Date">
                     </div>
                     <div class="form-group">
                         <label>Short Description</label>
@@ -71,7 +69,7 @@
                     </div>
                     <div class="form-group">
                         <label>Revious Price</label>
-                        <input type="text" class="form-control" ng-model="book.reviousPrice" placeholder="Revious Price">
+                        <input type="text" class="form-control" ng-model="book.previousPrice" placeholder="Revious Price">
                     </div>
                     <div class="form-group">
                         <label>Selling Price</label>
