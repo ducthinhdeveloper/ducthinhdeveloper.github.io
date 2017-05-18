@@ -8,21 +8,32 @@
         type="image/x-icon" />
 </head>
 
-<body>
+<body ng-controller="BooksController" ng-init="init()">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-                <a class="navbar-brand" href="#">Bookstore</a>
+                <a class="navbar-brand" href="/#/">Bookstore</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#/books/add">Add Book</a></li>
+                    <li ng-hide="isLogged()"><a href="/#login/">Login</a></li>
+                   
+                    <li ng-show="isLogged()" class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown">{{user.name}}<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">My Profile</a></li>
+                            <li><a href="">My Order</a></li>
+                            <li><a ng-click="logOut()">Logout</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!--/.nav-collapse -->
@@ -40,12 +51,12 @@
     </div>
     <!-- /.container -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="app.js"></script>
     <script src="controllers/books.js"></script>
-
 </body>
 
 </html>

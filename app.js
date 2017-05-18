@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',['ngRoute']);
+var myApp = angular.module('myApp',['ngRoute','ngCookies']);
 
 myApp.config(function($routeProvider){
 	$routeProvider.when('/', {
@@ -20,6 +20,18 @@ myApp.config(function($routeProvider){
 	.when('/books/edit/:id',{
 		controller:'BooksController',
 		templateUrl: 'views/edit_book.html'
+	})
+	.when('/login',{
+		controller:'BooksController',
+		templateUrl: 'views/login.html'
+	})
+	.when('/signup',{
+		controller:'BooksController',
+		templateUrl: 'views/signup.html'
+	})
+	.when('/profile',{
+		controller:'BooksController',
+		templateUrl: 'views/profile.html'
 	})
 	.otherwise({
 		redirectTo: '/'
