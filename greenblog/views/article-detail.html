@@ -1,6 +1,6 @@
-<a href="#/books">Go Back</a>
-<div class="panel panel-default" ng-init="getBook()">
-  <div class="panel-heading">
+<a href="/greenblog/#/articles">Go Back</a>
+<div class="panel panel-default" ng-init="getArticle()">
+  <!-- <div class="panel-heading">
     <h3 class="panel-title">{{book.title}}</h3>
   </div>
   <div class="panel-body">
@@ -21,9 +21,9 @@
 		<a class="btn btn-danger" href="#" ng-click="removeBook(book._id)">Delete</a>
       </div>
     </div>
-  </div>
+  </div> -->
 </div>
 
 <div class="pull-right">
-  <a href="#/books/edit/{{book._id}}">Edit</a> |  <a href="#" ng-click="removeBook(book._id)">Delete</a>
+  <a href="/greenblog/#/article/edit/{{book._id}}">Edit</a> |  <a href="#" ng-click="removeArticle(book._id)">Delete</a>
 </div>

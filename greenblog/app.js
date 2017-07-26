@@ -3,23 +3,23 @@ var myApp = angular.module('myApp',['ngRoute','ngCookies']);
 myApp.config(function($routeProvider){
 	$routeProvider.when('/', {
 		controller:'BlogController',
-		templateUrl: 'views/books.html'
+		templateUrl: 'views/articles.html'
 	})
-	.when('/books', {
+	.when('/articles', {
 		controller:'BlogController',
-		templateUrl: 'views/books.html'
+		templateUrl: 'views/articles.html'
 	})
-	.when('/books/details/:id',{
+	.when('/article/details/:id',{
 		controller:'BlogController',
-		templateUrl: 'views/book_details.html'
+		templateUrl: 'views/article-detail.html'
 	})
-	.when('/books/add',{
+	.when('/article/add',{
 		controller:'BlogController',
-		templateUrl: 'views/add_book.html'
+		templateUrl: 'views/article-add.html'
 	})
-	.when('/books/edit/:id',{
+	.when('/article/edit/:id',{
 		controller:'BlogController',
-		templateUrl: 'views/edit_book.html'
+		templateUrl: 'views/article-edit.html'
 	})
 	.when('/login',{
 		controller:'BlogController',
