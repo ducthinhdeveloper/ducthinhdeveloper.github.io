@@ -1,10 +1,9 @@
 var myApp = angular.module('myApp');
 
-myApp.controller('BooksController', ['$scope', '$http', '$location', '$routeParams', '$cookieStore',
+myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParams', '$cookieStore',
     function ($scope, $http, $location, $routeParams, $cookieStore) {
         console.log('BooksController loaded...');
-        //var root = 'http://localhost:5000';
-        var root = 'https://green-web-bookstore.herokuapp.com';
+        var root = 'https://green-web-blog.herokuapp.com';
         var config = {
             headers: {
                 'Accept': 'application/json;odata=verbose',
