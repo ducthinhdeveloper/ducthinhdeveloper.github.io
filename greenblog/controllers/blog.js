@@ -2,7 +2,7 @@ var myApp = angular.module('myApp');
 
 myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParams', '$cookieStore',
     function ($scope, $http, $location, $routeParams, $cookieStore) {
-        console.log('BooksController loaded...');
+        console.log('BlogController loaded...');
         var root = 'https://green-web-blog.herokuapp.com';
         var config = {
             headers: {
@@ -101,7 +101,7 @@ myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParam
         }
 
         $scope.summitSignup = function () {
-            $http.post(root + '/api/signup/', $scope.signUpUser).success(function (response) {
+            $http.post(root + '/api/users/signup/', $scope.signUpUser).success(function (response) {
                 var isSuccess = response.success;
                 if (isSuccess) {
                     $cookieStore.put('token', response.token);
