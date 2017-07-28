@@ -17,6 +17,8 @@ myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParam
                 console.log(data, status, headers, config);
             });;
         }
+
+
         $scope.getArticles = function () {
             $http.get(root + '/api/books').success(function (response) {
                 $scope.books = response;
@@ -24,8 +26,6 @@ myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParam
                 console.log(data, status, headers, config);
             });;
         }
-       
-
         $scope.getArticle = function () {
             var id = $routeParams.id;
             $http.get(root + '/api/books/' + id).success(function (response) {
@@ -61,6 +61,9 @@ myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParam
             });;
         }
 
+
+
+        
         $scope.loadLogin = function () {
             var token = $cookieStore.get('token');
             if (token !== undefined) {
