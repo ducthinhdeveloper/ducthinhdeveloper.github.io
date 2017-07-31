@@ -1,8 +1,5 @@
-var myApp = angular.module('myApp');
-
 myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParams', '$cookieStore',
     function ($scope, $http, $location, $routeParams, $cookieStore) {
-        console.log('BlogController loaded...');
         var root = 'https://green-web-blog.herokuapp.com';
         var config = {
             headers: {
@@ -11,8 +8,8 @@ myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParam
             }
         };
         $scope.getCategory = function () {
-            $http.get(root + '/api/genres').success(function (response) {
-                $scope.genres = response;
+            $http.get(root + '/api/categories').success(function (response) {
+                $scope.categories = response;
             }).error(function (data, status, headers, config) {
                 console.log(data, status, headers, config);
             });;
@@ -20,25 +17,27 @@ myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParam
 
 
         $scope.getArticles = function () {
-            $http.get(root + '/api/books').success(function (response) {
-                $scope.books = response;
+            $http.get(root + '/api/articles').success(function (response) {
+                $scope.articles = response;
             }).error(function (data, status, headers, config) {
                 console.log(data, status, headers, config);
-            });;
+            });
         }
+
         $scope.getArticle = function () {
             var id = $routeParams.id;
-            $http.get(root + '/api/books/' + id).success(function (response) {
-                $scope.book = response;
+            $http.get(root + '/api/article/' + id).success(function (response) {
+                $scope.article = response;
             }).error(function (data, status, headers, config) {
                 console.log(data, status, headers, config);
-            });;
+            });
         }
 
         $scope.addArticle = function () {
-            console.log($scope.book);
-            $http.post(root + '/api/books/', $scope.book).success(function (response) {
-                window.location.href = '#/books';
+            console.log($scope.article);
+            $scope.article._author = $scope.user._id;
+            $http.post(root + '/api/articles/', $scope.article).success(function (response) {
+                window.location.href = '#/articles';
             }).error(function (data, status, headers, config) {
                 console.log(data, status, headers, config);
             });;
@@ -46,7 +45,7 @@ myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParam
 
         $scope.updateArticle = function () {
             var id = $routeParams.id;
-            $http.put(root + '/api/books/' + id, $scope.book).success(function (response) {
+            $http.put(root + '/api/article/' + id, $scope.book).success(function (response) {
                 window.location.href = '#/books/' + $routeParams.id;
             }).error(function (data, status, headers, config) {
                 console.log(data, status, headers, config);
@@ -54,7 +53,7 @@ myApp.controller('BlogController', ['$scope', '$http', '$location', '$routeParam
         }
 
         $scope.removeArticle = function (id) {
-            $http.delete(root + '/api/books/' + id).success(function (response) {
+            $http.delete(root + '/api/article/' + id).success(function (response) {
                 $location.url("/")
             }).error(function (data, status, headers, config) {
                 console.log(data, status, headers, config);

@@ -11,9 +11,13 @@
                         <label>Title</label>
                         <input type="text" class="form-control" ng-model="article.title" placeholder="Title">
                     </div>
-                    <div class="form-group" ng-init="getGenres()">
+                    <div class="form-group">
+                        <label>Author</label>
+                        <input type="text" class="form-control" value="{{user._id}}" placeholder="Author ID">
+                    </div>
+                    <div class="form-group" ng-init="getCategory()">
                         <label>Category</label>
-                        <select ng-model="article.category" ng-required="true" class="form-control" ng-options="genre as genre.name for genre in genres"/>
+                        <select ng-model="article.category" ng-required="true" class="form-control" ng-options="category as category.name for category in categories track by category._id"/>
                     </div>
                     <div class="form-group">
                         <label>Short Description</label>
@@ -21,15 +25,15 @@
                     </div>
                     <div class="form-group">
                         <label>Full Description</label>
-                        <textarea class="form-control" ng-model="article.fullDescription" placeholder="Full Description"></textarea>
+                        <textarea class="form-control" ng-model="article.fullDescription"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Media</label>
-                        <input type="text" class="form-control" ng-model="article.media" placeholder="Publisher">
+                        <input type="text" class="form-control" ng-model="article.media" placeholder="Image, Youtube Link...">
                     </div>
                     <div class="form-group">
                         <label>Tags</label>
-                        <input type="text" class="form-control" ng-model="article.tags" placeholder="Pages">
+                        <tags-input use-strings="true" height='30px' ng-model="article.tags"></tags-input>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                 </form>

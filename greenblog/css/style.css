@@ -2,3 +2,10 @@
     max-width: 200px;
     max-height: 250px;
 }
+
+tags-input .tags{
+    height: auto;
+}
+tags-input .host{
+    height: auto;
+}
